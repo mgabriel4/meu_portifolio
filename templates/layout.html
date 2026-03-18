@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ titulo if titulo else "Portfólio" }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Instrument+Serif:ital@0;1&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <div class="layout-portfolio">
+        <aside class="sidebar">
+            <div class="sidebar-conteudo">
+                <nav class="sidebar-nav">
+                    <a href="#inicio"><i class="fa-solid fa-house"></i> Início</a>
+                    <a href="#sobre"><i class="fa-solid fa-user"></i> Sobre</a>
+                    <a href="#projetos"><i class="fa-solid fa-code"></i> Projetos</a>
+                    <a href="#habilidades"><i class="fa-solid fa-layer-group"></i> Habilidades</a>
+                    <a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a>
+                </nav>
+
+                <div class="sidebar-social">
+                    <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:seuemail@exemplo.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            {% block body %}{% endblock %}
+
+            <footer class="rodape">
+                <small>© 2026 Maria Gabriela Vieira. Desenvolvido com Flask.</small>
+            </footer>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sweetalert2.min.js') }}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
